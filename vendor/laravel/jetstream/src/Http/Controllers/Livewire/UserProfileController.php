@@ -20,4 +20,12 @@ class UserProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
+
+    public function MonProfil(Request $request)
+    {
+        return view('profile.profil', [
+            'request' => $request,
+            'user' => $request->user(),
+        ]);
+    }
 }

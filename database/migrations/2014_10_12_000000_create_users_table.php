@@ -13,6 +13,8 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        //Permet de désactiver temporairement le contrôle référentiel le temps de créer les tables 
+        Schema::disableForeignKeyConstraints();
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -22,6 +24,14 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
+            //Création de la colonne cooperateur_id
+            $table->unsignedBigInteger('cooperateur_name')->nullable();
+            $table->foreign('cooperateur_name')
+                ->references('name')
+                ->on('cooperateur')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            $table->string('bio')->nullable();
             $table->timestamps();
         });
     }

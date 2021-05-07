@@ -103,7 +103,7 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('profile.MonProfil') }}">
                                 {{ __('Mon profil') }}
                             </x-jet-dropdown-link>
                             

@@ -20,6 +20,11 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
         // User & Profile...
         Route::get('/user/profile', [UserProfileController::class, 'show'])
                     ->name('profile.show');
+                
+        //Mon profil
+        Route::get('/user/MonProfil', [UserProfileController::class, 'MonProfil'])
+                    ->name('profile.MonProfil');
+
 
         // API...
         if (Jetstream::hasApiFeatures()) {
