@@ -21,10 +21,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/Formation', function () {
+//
+Route::middleware(['auth:sanctum', 'verified'])->get('/Formation', function () {
     return view('profile.Formation');
 })->name('Formation');
 
-Route::get('/NosCooperateurs', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/Noscooperateurs', function () {
     return view('profile.NosCooperateurs');
 })->name('NosCooperateurs');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/CompleterProfil', function () {
+    return view('profile.CompleterProfil');
+})->name('CompleterProfil');

@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Mets à jour ton identifiant et ton nom d\'utilisateur') }}
+        {{ __('Mets à jour ta photo, ton identifiant, ton nom d\'utilisateur et ta bio ') }}
     </x-slot>
 
     <x-slot name="form">
@@ -66,12 +66,16 @@
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <label for="bio" class="mt-1 block w-full">Ma Bio</label>
-            <textarea class="form-control" id="bio" class="mt-1 block w-full"></textarea>
-        </div>                           
+            <x-jet-label for="bio" value="{{ __('Ma Bio') }}" />
+            <x-jet-input id="bio" type="bio" class="mt-1 block w-full" wire:model.defer="state.bio" />
+            <x-jet-input-error for="bio" class="mt-2" />
+        </div>
 
-        <!-- Bio Utilisateur -->
-        
+        <!-- Bio Utilisateur
+        <div class="col-span-6 sm:col-span-4">
+            <label for="bio" class="mt-1 block" >Ma Bio</label>
+            <textarea class="form-control" id="bio" class="mt-1 block w-full" wire:model.defer="state.bio"></textarea>
+        </div>   -->                              
     </x-slot>
 
     <x-slot name="actions">

@@ -1,3 +1,14 @@
+<div>
+	<!--Insertion du lien bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet"href="https://bootswatch.com/4/united/bootstrap.min.css">	
+    <!-- Alerte pour compléter le profil -->
+    @if(Route::is('dashboard'))
+    <div class="alert alert-info" role="alert">
+        Pour plus de visibilité <a href="{{ route('CompleterProfil') }}" class="alert-link">Cliquez ici</a> pour compléter votre profil
+    </div>
+    @endif
+</div>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
