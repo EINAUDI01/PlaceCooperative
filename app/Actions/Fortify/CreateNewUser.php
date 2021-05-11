@@ -33,17 +33,4 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
         ]);
     }
-
-    public function CompleterProfil(array $input)
-    {
-        //Validator::make($input, [
-           // 'name' => ['required', 'string', 'max:255'],
-           // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-           // 'password' => $this->passwordRules(),
-           // 'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
-        //])->validate();
-
-        return User::CompleterProfil([
-            'bio' => $input['bio'], 
-    }
 }
