@@ -19,19 +19,15 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('bio')->nullable();
+            $table->string('description')->nullable();
+            $table->string('profession')->nullable();
+            $table->string('nameCooperateur')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
-            //Création de la colonne cooperateur_id
-            $table->unsignedBigInteger('cooperateur_name')->nullable();
-            $table->foreign('cooperateur_name')
-                ->references('name')
-                ->on('cooperateur')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-            $table->string('bio')->nullable();
             $table->timestamps();
         });
     }

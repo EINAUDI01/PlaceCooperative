@@ -22,13 +22,13 @@
                                         photoPreview = e.target.result;
                                     };
                                     reader.readAsDataURL($refs.photo.files[0]);
-                            " />
+                "/>
 
                 <x-jet-label for="photo" value="{{ __('Photo') }}" />
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    <img src="{{ asset('storage/'.$this->user->profile_photo_path) }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
@@ -65,10 +65,27 @@
             <x-jet-input-error for="email" class="mt-2" />
         </div>
 
+
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="bio" value="{{ __('Ma Bio') }}" />
-            <x-jet-input id="bio" type="bio" class="mt-1 block w-full" wire:model.defer="state.bio" />
+            <x-jet-input id="bio" type="bio" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-s" wire:model.defer="state.bio" />
             <x-jet-input-error for="bio" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="profession" value="{{ __('Profession') }}" />
+            <x-jet-input id="profession" type="profession" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-s" wire:model.defer="state.profession" />
+            <x-jet-input-error for="bio" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4" >
+            <x-jet-label for="nameCooperation" value="{{ __('Vous etes membre de :') }}" />
+            <select id="nameCooperateur" name="nameCooperateur" class="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-s"  wire:model.defer="state.nameCooperateur" >
+                <option value="Ocellia"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ocellia</font></font></option>
+                <option value="Don Bosco"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Don Bosco</font></font></option>
+                <option value="IRTS"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IRTS</font></font></option>
+                <option value=ARHM><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Arhm</font></font></option>
+            </select>
         </div>
 
         <!-- Bio Utilisateur

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/Noscooperateurs', functio
 Route::middleware(['auth:sanctum', 'verified'])->get('/CompleterProfil', function () {
     return view('profile.CompleterProfil');
 })->name('CompleterProfil');
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/CompleterProfil', [Controller::class, 'EnregistrementCompleterProfilbb'])->name('Controller.EnregistrementCompleterofil');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/Infos', function () {
+    return view('profile.InformationsProfil');
+})->name('InformationsProfil');
