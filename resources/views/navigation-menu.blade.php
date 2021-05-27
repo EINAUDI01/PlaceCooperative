@@ -2,14 +2,19 @@
 	<!--Insertion du lien bootstrap-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet"href="https://bootswatch.com/4/united/bootstrap.min.css">	
-    <!-- Alerte pour compléter le profil -->
-    @if(Route::is('dashboard'))
-    <div class="alert alert-info" role="alert">
-        Pour plus de visibilité <a href="{{ route('profile.show') }}" class="alert-link">Cliquez ici</a> pour compléter votre profil
-    </div>
-    @endif
 </div>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+
+    <!-- Alerte pour compléter le profil -->
+    @if(Route::is('dashboard'))
+        @if(( Auth::user()->bio == NULL ) && ( Auth::user()->profession == NULL ) && ( Auth::user()->bio == NULL ) && ( Auth::user()->profile_photo_path == NULL ))
+            <div class="alert alert-info" role="alert">
+                Pour plus de visibilité <a href="{{ route('profile.show') }}" class="alert-link">Cliquez ici</a> pour compléter votre profil<br/>
+                Tous les champs doivent etre rempli pour enregistrer vos modifications !
+            </div>
+        @endif
+    @endif
+
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -40,6 +45,9 @@
                     </x-jet-nav-link>
                 </div>
             </div>
+
+            <!-- Barre de recherche -->
+            <livewire:search />
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Settings Dropdown -->
@@ -84,7 +92,6 @@
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">

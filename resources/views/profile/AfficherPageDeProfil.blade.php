@@ -1,22 +1,23 @@
 <x-app-layout>
 <div>
     <figure class="decoration-clone md:flex border-2 border-red-5000 md:rounded-xl p-8 md:p-0">
-        <img class="rounded-full w-32 h-32 md:w-48 md:h-auto mx-auto" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" width="384" height="512">
+        <img class="rounded-full w-32 h-32 md:w-48 md:h-auto mx-auto" src="{{ $user->profile_photo_url }}" alt="{{ Auth::user()->name }}" width="384" height="512">
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
             <blockquote>
                 <p class="text-lg">
-                    {{ Auth::user()->bio }}
+                    {{ $user->bio }}
                 </p>
             </blockquote>
             <figcaption class="font-medium">
                 <div class="text-cyan-600">
-                    {{ Auth::user()->name }}
+                    {{ $user->name }}
                 </div>
                 <div class="text-gray-500">
-                {{ Auth::user()->profession }}  <br/>
+                    {{ $user->profession }}  <br/>
                 </div>
             </figcaption>
-            <div class="flex text-gray-500 space-x-3 mb-4 text-sm font-medium">
+            @if( (Auth::user()->name ) ==  ($user->name))
+                <div class="flex text-gray-500 space-x-3 mb-4 text-sm font-medium">
                     <div class="flex-auto flex space-x-3">
                         <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Envoyer un message</button>
                         <button class="w-1/2 flex items-center justify-center rounded-md border border-gray-300" type="button">Mes Contacts</button>
@@ -26,7 +27,15 @@
                             </svg>
                         </button>
                     </div>
+                </div>
+            @else
+            <div class="flex text-gray-500 space-x-3 mb-4 text-sm font-medium">
+                <div class="flex-auto flex space-x-3">
+                    <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Chatter</button>
+                    <button class="w-1/2 flex items-center justify-center rounded-md border border-gray-300" type="button">Autres Contacts</button>
+                </div>
             </div>
+            @endif
         </div>
     </figure> 
 

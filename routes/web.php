@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PageProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
 //
-Route::middleware(['auth:sanctum', 'verified'])->get('/Formation', function () {
+Route::get('/Formation', function () {
     return view('profile.Formation');
 })->name('Formation');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/Noscooperateurs', function () {
+Route::get('/Noscooperateurs', function () {
     return view('profile.NosCooperateurs');
 })->name('NosCooperateurs');
 
@@ -40,3 +41,5 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/CompleterProfil', [Contr
 Route::middleware(['auth:sanctum', 'verified'])->get('/Infos', function () {
     return view('profile.InformationsProfil');
 })->name('InformationsProfil');
+
+Route::get('/PageDeProfil/{id}', [PageProfilController::class, 'AfficherPageDeProfil'])->middleware('auth')->name('profile.AfficherPageDeProfil');
