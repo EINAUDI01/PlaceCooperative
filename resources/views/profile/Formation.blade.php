@@ -1,3 +1,4 @@
+ <!--Cette page est celle que j'ai résevé pour afficher les formations, une des pages dont Corentin s'est occupé-->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">

@@ -1,3 +1,4 @@
+ <!--Cette page est celle qui s'affiche lorsqu'un utilisteur connecté fait une recherche de nom sur un utilisateur-->
 <x-app-layout>
 <div>
     <figure class="decoration-clone md:flex border-2 border-red-5000 md:rounded-xl p-8 md:p-0">
@@ -5,6 +6,7 @@
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
             <blockquote>
                 <p class="text-lg">
+                 <!--Les codes entre crochets vont permettre de récupérer les informations àafficher sur la page relatives à chaque utilisateur -->
                     {{ $user->bio }}
                 </p>
             </blockquote>
@@ -16,6 +18,7 @@
                     {{ $user->profession }}  <br/>
                 </div>
             </figcaption>
+             <!--La condition établie ici permet de vérifier si la recherche est effectué sur le nom de l'utilisateur déjà connecté, ainsi on devra afficher une page semblable à la page mon profil-->
             @if( (Auth::user()->name ) ==  ($user->name))
                 <div class="flex text-gray-500 space-x-3 mb-4 text-sm font-medium">
                     <div class="flex-auto flex space-x-3">
@@ -28,6 +31,7 @@
                         </button>
                     </div>
                 </div>
+             <!--Dans le cas contraire, on applique le code suivant à la page-->
             @else
             <div class="flex text-gray-500 space-x-3 mb-4 text-sm font-medium">
                 <div class="flex-auto flex space-x-3">
@@ -39,12 +43,13 @@
         </div>
     </figure> 
 
+     <!--Ici, le code permet d'afficher les deux emplacements prévus pour les formations et les activités récentes de l'utilisateur-->
     <div class="h-64 grid grid-cols-2 grid-flow-col gap-4">
         <div class="flex items-center justify-center border-solid border-4 border-light-blue-500 col-span-1">  
-                MES FORMATIONS
+                FORMATIONS
         </div>
         <div class="flex items-center justify-center border-solid border-4 border-light-blue-500 col-span-1">
-                MES ACTIVITES RECENTES
+                ACTIVITES RECENTES
         </div>
     </div>
 </div>
