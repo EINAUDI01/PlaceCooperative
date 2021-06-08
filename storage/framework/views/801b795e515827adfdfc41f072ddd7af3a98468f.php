@@ -1,3 +1,4 @@
+ <!--Cette page est celle qui s'affiche lorsqu'un utilisteur connecté fait une recherche de nom sur un utilisateur-->
 <?php if (isset($component)) { $__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\AppLayout::class, []); ?>
 <?php $component->withName('app-layout'); ?>
@@ -6,10 +7,11 @@
 <?php $component->withAttributes([]); ?>
 <div>
     <figure class="decoration-clone md:flex border-2 border-red-5000 md:rounded-xl p-8 md:p-0">
-        <img class="rounded-full w-32 h-32 md:w-48 md:h-auto mx-auto" src="<?php echo e($user->profile_photo_url); ?>" alt="<?php echo e(Auth::user()->name); ?>" width="384" height="512">
+        <img class="rounded-full w-32 h-32 md:w-48 md:h-auto mx-auto" src="<?php echo e($user->profile_photo_url); ?>" alt="<?php echo e($user->name); ?>" width="384" height="512">
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
             <blockquote>
                 <p class="text-lg">
+                 <!--Les codes entre crochets vont permettre de récupérer les informations àafficher sur la page relatives à chaque utilisateur -->
                     <?php echo e($user->bio); ?>
 
                 </p>
@@ -23,6 +25,7 @@
                     <?php echo e($user->profession); ?>  <br/>
                 </div>
             </figcaption>
+             <!--La condition établie ici permet de vérifier si la recherche est effectué sur le nom de l'utilisateur déjà connecté, ainsi on devra afficher une page semblable à la page mon profil-->
             <?php if( (Auth::user()->name ) ==  ($user->name)): ?>
                 <div class="flex text-gray-500 space-x-3 mb-4 text-sm font-medium">
                     <div class="flex-auto flex space-x-3">
@@ -35,6 +38,7 @@
                         </button>
                     </div>
                 </div>
+             <!--Dans le cas contraire, on applique le code suivant à la page-->
             <?php else: ?>
             <div class="flex text-gray-500 space-x-3 mb-4 text-sm font-medium">
                 <div class="flex-auto flex space-x-3">
@@ -46,6 +50,7 @@
         </div>
     </figure> 
 
+     <!--Ici, le code permet d'afficher les deux emplacements prévus pour les formations et les activités récentes de l'utilisateur-->
     <div class="h-64 grid grid-cols-2 grid-flow-col gap-4">
         <div class="flex items-center justify-center border-solid border-4 border-light-blue-500 col-span-1">  
                 FORMATIONS

@@ -2,7 +2,7 @@
 <x-app-layout>
 <div>
     <figure class="decoration-clone md:flex border-2 border-red-5000 md:rounded-xl p-8 md:p-0">
-        <img class="rounded-full w-32 h-32 md:w-48 md:h-auto mx-auto" src="{{ $user->profile_photo_url }}" alt="{{ Auth::user()->name }}" width="384" height="512">
+        <img class="rounded-full w-32 h-32 md:w-48 md:h-auto mx-auto" src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" width="384" height="512">
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
             <blockquote>
                 <p class="text-lg">
