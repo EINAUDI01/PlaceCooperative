@@ -44,3 +44,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/Infos', function () {
 })->name('InformationsProfil');
 
 Route::get('/PageDeProfil/{id}', [PageProfilController::class, 'AfficherPageDeProfil'])->middleware('auth')->name('profile.AfficherPageDeProfil');
+
+Route::get('/PageDeNotification', [PageNotificationController::class, 'AfficherPageDeNotification'])->middleware('auth')->name('profile.AfficherPageDeNotification');
