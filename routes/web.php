@@ -29,10 +29,13 @@ Route::get('/Formation', function () {
     return view('profile.Formation');
 })->name('Formation');
 
+//Route /NosCoopérateur nommé NosCoopérateurs permet d'accéder à la page relative aux coopérateurs
 Route::get('/Noscooperateurs', function () {
     return view('profile.NosCooperateurs');
 })->name('NosCooperateurs');
 
+//Route /CompléterProfil nommé CompleterProfil permet d'envoyer la page pour compléter les profils
+//Elle est accessible seulement si l'utilisateur est connecté
 Route::middleware(['auth:sanctum', 'verified'])->get('/CompleterProfil', function () {
     return view('profile.CompleterProfil');
 })->name('CompleterProfil');

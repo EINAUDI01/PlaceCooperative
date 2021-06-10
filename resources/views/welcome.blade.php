@@ -41,6 +41,12 @@
 								</a>
 							</div>
 
+							<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('NosCooperateurs') }}">
+                        {{ __('Nos coopérateurs') }}
+                    </x-jet-nav-link>
+                </div>
+
 							<!-- Navigation Links -->
 
 						@if (Route::has('login'))

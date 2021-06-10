@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
         //Permet de désactiver temporairement le contrôle référentiel le temps de créer les tables 
         Schema::disableForeignKeyConstraints();
         Schema::create('users', function (Blueprint $table) {
+            //Création des champs utilisateurs
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -29,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
             $table->timestamps();
+            $table->engine='InnoDB';
         });
     }
 

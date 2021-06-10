@@ -7,7 +7,7 @@
 
         <!--Ici, on vérifie qu'il y a des notifications non lues-->
         <?php if (! (auth()->user()->unreadNotifications->isEmpty())): ?>
-            <!--S'il y en a un récupère le nombre qui sera affiché à coté de la cloche-->
+            <!--S'il y en a on récupère le nombre qui sera affiché à coté de la cloche-->
             <?php echo e(Auth()->user()->unreadNotifications->count()); ?>
 
         <?php endif; ?>
